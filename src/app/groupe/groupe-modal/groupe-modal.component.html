@@ -1,0 +1,35 @@
+<div>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title-notification" style="color: white; text-align: center;">{{data.title}}</h4>
+  
+  </div>
+  <div class="modal-body"  *ngIf="!data.delete && !data.consult">
+    <form >
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="groupe">Groupe</label>
+            <input type="text" name='groupe' class="form-control"  placeholder="Groupe"  [(ngModel)]="data.groupe">
+          </div>
+        </div>
+        
+      </div>
+      
+    </form></div>
+
+    <div class="modal-body" *ngIf="data.consult && data.mat && !data.delete && !data.edit">
+      
+        <div *ngFor="let matiere of data.matieres"><h3 style="text-align: center; color: white;">{{ matiere }}</h3></div>
+    
+    </div>
+    <div class="modal-body" *ngIf="data.consult && data.et && !data.delete && !data.edit">
+      
+        <div *ngFor="let etudiant of data.etudiants"><h3 style="text-align: center; color: white;">{{ etudiant }}</h3></div>
+    
+    </div>
+  <div class="modal-footer">
+    <input type="hidden" [(ngModel)]="data.id">
+    <button *ngIf="data.delete && !data.consult" type="button" class="btn btn-white" (click)="delete(data.id)" cdkFocusInitial>Confirmer</button>
+    <button *ngIf="!data.delete && !data.consult"type="button" class="btn btn-white" (click)="confirmer()" cdkFocusInitial>Confirmer</button>
+    <button type="button" class="btn btn-link text-white ml-auto" (click)="onNoClick()">Fermer</button>
+  </div>

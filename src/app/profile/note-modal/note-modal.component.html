@@ -1,0 +1,35 @@
+<div>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title-notification" style="color: white; text-align: center;">{{data.title}}</h4>
+  
+  </div>
+  <div class="modal-body" >
+    <form >
+      <div class="row" >
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="note">Note</label>
+            <input type="number" name='note' class="form-control"  placeholder="Note"  [(ngModel)]="data.note">
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="form-group" >
+            <label for="matiere">Matière</label>
+            <mat-select [(ngModel)]="data.matiere" name="matiere" class="btn btn-white " [(value)]="selected.id" placeholder="{{selected.module}}" >
+              <mat-option *ngFor="let matiere of data.matieres" [value]="matiere.id" class="dropdown-item"  >
+                {{matiere.module}}
+              </mat-option>
+            </mat-select>
+          </div>  
+        </div>
+      </div>
+      
+    </form></div>
+
+    
+  <div class="modal-footer">
+    <input type="hidden" [(ngModel)]="data.id">
+    <button type="button" class="btn btn-white" (click)="confirmer()" cdkFocusInitial>Confirmer</button>
+    <button type="button" class="btn btn-link text-white ml-auto" (click)="onNoClick()">Fermer</button>
+  </div>

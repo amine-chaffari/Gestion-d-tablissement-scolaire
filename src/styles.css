@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my-app-dialog .mat-dialog-container {
+    background: linear-gradient(87deg, #f5365c 0, #f56036 100%)!important
+  }
